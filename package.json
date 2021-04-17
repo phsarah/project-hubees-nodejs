@@ -4,8 +4,9 @@
   "description": "Project developed for the selective process of Hubees! 🐝",
   "main": "index.js",
   "scripts": {
-    "start": "tsc && node ./build/index.js",
+    "start": "tsc && node ./build/src/index.js",
     "dev": "ts-node-dev ./src/index.ts",
+    "setup": "tsc && node ./build/src/sqlSetup.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
