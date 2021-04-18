@@ -1,10 +1,14 @@
-import express, { Express } from "express";
+import cors from "cors";
+import express, { Express, Request, Response } from "express";
 import { AddressInfo } from "net";
+import { baseRouter } from "./controller/route/baseRouter";
 import { bikeRouter } from "./controller/route/bikeRouter";
 
 const app: Express = express();
 app.use(express.json());
+app.use(cors());
 
+app.use("/", baseRouter)
 app.use("/bike", bikeRouter);
 
 
