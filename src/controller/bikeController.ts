@@ -61,7 +61,7 @@ export class BikeController{
             .send({ error: e.message })
         }
     }
-    public async getByid(req: Request, res: Response){
+    public async getById(req: Request, res: Response){
         try{
             const { id } = req.params
 
@@ -70,6 +70,21 @@ export class BikeController{
             res
             .status(202)
             .send({ data })
+        }   
+        catch(e){
+            res
+            .status(400)
+            .send({ error: e.message })
+        }
+    }
+    public async getAll(req: Request, res: Response){
+        try{
+
+            const listOfBikes = await bikeBusiness.selectAll()
+            
+            res
+            .status(200)
+            .send({ listOfBikes })
         }   
         catch(e){
             res

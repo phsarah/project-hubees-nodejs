@@ -16,3 +16,12 @@ export interface BikeInputDTO{
     model: string,
     price: number
 }
+
+export interface BikeOutputDTO{
+    id: string,
+    color: string,
+    numberOfGears: number,
+    brand: string,
+    model: string,
+    price: number
+}

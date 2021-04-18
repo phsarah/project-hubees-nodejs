@@ -1,4 +1,4 @@
-import { Bike, BikeInputDTO } from "../business/entities/bike";
+import { Bike, BikeInputDTO, BikeOutputDTO } from "../business/entities/bike";
 import { CustomError } from "../business/error/customError";
 import BaseDatabase from "./baseDatabase";
 import { BikeModel } from "./model/bikeModel";
@@ -32,7 +32,7 @@ export default class BikeDatabase extends BaseDatabase{
             .where({ id })
 
             if(!bike[0]){
-                throw new CustomError(404, `Unable to found Bike with input : ${id}`)
+                throw new CustomError(404, `Unable to found Band with input : ${id}`);
             }
 
             return BikeModel.toBikeModel(bike[0])
@@ -40,7 +40,31 @@ export default class BikeDatabase extends BaseDatabase{
         catch(e){
             throw new CustomError(500, e.sqlMessage || e.message)
         }
+    }
+    public async selectAll(): Promise<BikeOutputDTO[]>{
+        try{
+            const bikes = await BaseDatabase.connection
+                .select("*")
+                .from(BikeDatabase.TABLE)
 
+            if(!bikes.length){
+                throw new CustomError(404, "The bicycle list is empty.")
+            }
+
+            return bikes.map((bike: any) => {
+                return{
+                    id: bike.id,
+                    color: bike.color,
+                    numberOfGears: bike.number_of_gears,
+                    brand: bike.brand,
+                    model: bike.model,
+                    price: bike.price
+                }
+            })        
+        }
+        catch(e){
+            throw new CustomError(500, e.sqlMessage ||e.message);
+        }
     }
     public async updatePrice(id: string, price: number): Promise<void>{
         try{

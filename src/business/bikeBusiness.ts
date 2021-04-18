@@ -38,11 +38,18 @@ export class BikeBusiness{
 
         await this.bikeDatabase.updatePrice(id, price)
     }
-    
+
     public async getById(id: string ){
     
         const productData = await this.bikeDatabase.selectById(id)
         
         return productData
+    }
+
+    public async selectAll(){
+    
+        const listOfBikes = await this.bikeDatabase.selectAll()
+
+        return listOfBikes
     }
 }
