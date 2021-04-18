@@ -1,6 +1,6 @@
 import cors from "cors";
-import express, { Express, Request, Response } from "express";
 import { AddressInfo } from "net";
+import express, { Express } from "express";
 import { baseRouter } from "./controller/route/baseRouter";
 import { bikeRouter } from "./controller/route/bikeRouter";
 

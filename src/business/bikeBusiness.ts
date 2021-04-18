@@ -31,14 +31,18 @@ export class BikeBusiness{
         
         await this.bikeDatabase.insertBike(id, input)
     }
+
     public async editPrice(id: string, price: number){
         
-        const productData = await this.bikeDatabase.selectById(id)
-
-        if(!productData){
-            throw new CustomError(404, "Bike id not found")
-        }
+        await this.bikeDatabase.selectById(id)
 
         await this.bikeDatabase.updatePrice(id, price)
+    }
+    
+    public async getById(id: string ){
+    
+        const productData = await this.bikeDatabase.selectById(id)
+        
+        return productData
     }
 }

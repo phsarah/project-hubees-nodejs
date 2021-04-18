@@ -11,9 +11,11 @@ const bikeBusiness = new BikeBusiness(
 )
 
 export class BikeController{
-    public async base(req: Request, res: Response){
+    public async basePage(req: Request, res: Response){
         try{
-            res.sendFile(path.join(__dirname, "../views/index.html"))
+            res
+            .status(200)
+            .sendFile(path.join(__dirname, "../views/index.html"))
         }
         catch(e){
             res
@@ -52,6 +54,22 @@ export class BikeController{
             res
             .status(200)
             .send("Price edited successfully!")
+        }   
+        catch(e){
+            res
+            .status(400)
+            .send({ error: e.message })
+        }
+    }
+    public async getByid(req: Request, res: Response){
+        try{
+            const { id } = req.params
+
+            const data = await bikeBusiness.getById(id)
+            
+            res
+            .status(202)
+            .send({ data })
         }   
         catch(e){
             res

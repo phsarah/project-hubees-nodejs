@@ -5,4 +5,4 @@ export const baseRouter = express.Router();
 
 const bikeController = new BikeController();
 
-baseRouter.get("/", bikeController.base)
+baseRouter.get("/", bikeController.basePage)
