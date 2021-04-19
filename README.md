@@ -160,7 +160,8 @@ O servidor será aberto na porta 3003 - http://localhost:3003
 - Obter dados por id
 - Obter todas as bicicletas da lista
 - Filtros:
-     - Obter bicicletas por cor  *filtro flexível, exemplo: verde, VERDE, VeRdE *
+     - Obter bicicletas por cor   
+          *filtro flexível, exemplo: verde, VERDE, VeRdE ✔️*
      - Obter bicicletas por preço 
 
 <a id="bibliotecas"></a>
