@@ -23,7 +23,7 @@ export class BikeController{
             .send({ error: e.message });
         }
     }
-    public async createBike(req: Request, res: Response){
+    public async create(req: Request, res: Response){
         try{
             const input: BikeInputDTO = {
                 color: req.body.color,
@@ -61,7 +61,7 @@ export class BikeController{
             .send({ error: e.message })
         }
     }
-    public async getById(req: Request, res: Response){
+    public async getDataById(req: Request, res: Response){
         try{
             const { id } = req.params
 
@@ -86,6 +86,23 @@ export class BikeController{
             .status(200)
             .send({ listOfBikes })
         }   
+        catch(e){
+            res
+            .status(400)
+            .send({ error: e.message })
+        }
+    }
+    public async getBikesByColor(req: Request, res: Response){
+        try{
+            
+            const { bikeColor } = req.body
+
+            const filteredBikeList = await bikeBusiness.selectByColor(bikeColor)
+
+            res
+            .status(200)
+            .send({ filteredBikeList })
+        }
         catch(e){
             res
             .status(400)

@@ -6,6 +6,7 @@ export const bikeRouter = express.Router();
 const bikeController = new BikeController();
 
 bikeRouter.get("/all", bikeController.getAll);
-bikeRouter.post("/create", bikeController.createBike);
+bikeRouter.post("/create", bikeController.create);
 bikeRouter.put("/edit/:id", bikeController.editPrice);
-bikeRouter.get("/:id", bikeController.getById);
+bikeRouter.get("/:color", bikeController.getBikesByColor);
+bikeRouter.get("/:id", bikeController.getDataById);

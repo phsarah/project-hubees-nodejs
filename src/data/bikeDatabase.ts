@@ -32,7 +32,7 @@ export default class BikeDatabase extends BaseDatabase{
             .where({ id })
 
             if(!bike[0]){
-                throw new CustomError(404, `Unable to found Band with input : ${id}`);
+                throw new CustomError(404, `Unable to found Bike with input : ${id}`);
             }
 
             return BikeModel.toBikeModel(bike[0])

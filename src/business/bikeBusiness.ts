@@ -52,4 +52,16 @@ export class BikeBusiness{
 
         return listOfBikes
     }
+
+    public async selectByColor(color: string){
+        
+        const toUpperCaseColor = color && color.toUpperCase()
+
+        const listOfBikes = await this.bikeDatabase.selectAll()
+
+        return listOfBikes.filter((bike: any) => {
+            const bikeColor = bike.color && bike.color.toUpperCase() 
+            return bikeColor.match(toUpperCaseColor) 
+        })
+    }
 }
