@@ -90,7 +90,7 @@ export class BikeBusiness{
         return listOfBikes
     }
 
-    public async selectByColor(color: string){
+    public async selectByColor(color: any){
         
         if(!color){
             throw new CustomError(417, "It is necessary to inform the 'color' of the bike.");
@@ -105,7 +105,7 @@ export class BikeBusiness{
         })
     }
 
-    public async selectByPrice(minPrice: number, maxPrice: number){
+    public async selectByPrice(minPrice: any, maxPrice: any){
 
         if(!minPrice || !maxPrice){
             throw new CustomError(417, "It is necessary to inform the 'minPrice' and 'maxPrice' that you want to filter.");

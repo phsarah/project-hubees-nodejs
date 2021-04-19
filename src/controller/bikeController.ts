@@ -114,7 +114,7 @@ export class BikeController{
     public async getBikesByColor(req: Request, res: Response){
         try{
             
-            const { bikeColor } = req.body
+            const { bikeColor } = req.query 
 
             const filteredBikeList = await bikeBusiness.selectByColor(bikeColor)
 
@@ -131,7 +131,7 @@ export class BikeController{
     public async getBikesByPrice(req: Request, res: Response){
         try{
 
-            const { minPrice, maxPrice } = req.body
+            const { minPrice, maxPrice } = req.query
 
             const filteredBikeList = await bikeBusiness.selectByPrice(minPrice, maxPrice)
 
