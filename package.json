@@ -1,0 +1,41 @@
+{
+  "name": "project-hubees-nodejs",
+  "version": "1.0.0",
+  "description": "Project developed for the selective process of Hubees! 🐝",
+  "main": "index.js",
+  "scripts": {
+    "start": "tsc && node ./build/src/index.js",
+    "dev": "ts-node-dev ./src/index.ts",
+    "setup": "tsc && node ./build/src/sqlSetup.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/phsarah/project-hubees-nodejs.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/phsarah/project-hubees-nodejs/issues"
+  },
+  "homepage": "https://github.com/phsarah/project-hubees-nodejs#readme",
+  "devDependencies": {
+    "@types/cors": "^2.8.10",
+    "@types/dotenv": "^8.2.0",
+    "@types/express": "^4.17.11",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "ts-node-dev": "^1.1.6",
+    "typescript": "^4.2.4"
+  },
+  "dependencies": {
+    "@types/knex": "^0.16.1",
+    "@types/uuid": "^8.3.0",
+    "cors": "^2.8.5",
+    "knex": "^0.95.4",
+    "mysql": "^2.18.1",
+    "pug": "^3.0.2",
+    "uuid": "^8.3.2"
+  }
+}
