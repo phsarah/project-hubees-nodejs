@@ -4,7 +4,7 @@ export class MySqlSetup extends BaseDatabase{
     public async createTable(): Promise<void>{
         try{
             await BaseDatabase.connection.raw(`
-                CREATE TABLE IF NOT EXISTS hubees_bike
+                CREATE TABLE IF NOT EXISTS hubeecicly_bike
                 (
                     id VARCHAR(255) PRIMARY KEY NOT NULL,
                     color VARCHAR(255) NOT NULL,

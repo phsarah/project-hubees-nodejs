@@ -64,4 +64,16 @@ export class BikeBusiness{
             return bikeColor.match(toUpperCaseColor) 
         })
     }
+    public async selectByPrice(minPrice: number, maxPrice: number){
+
+        if(!minPrice || !maxPrice){
+            throw new CustomError(417, "It is necessary to inform the 'minPrice' and 'maxPrice' that you want to filter.");
+            
+        }
+        const listOfBikes = await this.bikeDatabase.selectAll()
+
+        return listOfBikes.filter((bike: any) => {
+            return bike.price < maxPrice && bike.price > minPrice
+        })
+    }
 }

@@ -109,4 +109,21 @@ export class BikeController{
             .send({ error: e.message })
         }
     }
+    public async getBikesByPrice(req: Request, res: Response){
+        try{
+
+            const { minPrice, maxPrice } = req.body
+
+            const filteredBikeList = await bikeBusiness.selectByPrice(minPrice, maxPrice)
+
+            res
+            .status(200)
+            .send({ filteredBikeList })
+        }
+        catch(e){
+            res
+            .status(400)
+            .send({ error: e.message })
+        }
+    }
 }
