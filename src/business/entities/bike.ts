@@ -4,7 +4,8 @@ export class Bike {
        public readonly numberOfGears: number,
        public readonly brand: string,
        public readonly model: string,
-       public readonly price:  number
+       public readonly price:  number,
+       public readonly quantity:  number
     ) { }
  }
 
@@ -14,7 +15,8 @@ export interface BikeInputDTO{
     numberOfGears: number,
     brand: string,
     model: string,
-    price: number
+    price: number,
+    quantity: number
 }
 
 export interface BikeOutputDTO{
@@ -23,5 +25,6 @@ export interface BikeOutputDTO{
     numberOfGears: number,
     brand: string,
     model: string,
-    price: number
+    price: number,
+    quantity: number
 }

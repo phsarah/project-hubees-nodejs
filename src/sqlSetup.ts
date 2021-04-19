@@ -11,7 +11,8 @@ export class MySqlSetup extends BaseDatabase{
                     number_of_gears INT NOT NULL, 
                     brand VARCHAR(255) NOT NULL,
                     model VARCHAR(255) NOT NULL,
-                    price DEC(15,2) NOT NULL 
+                    price DEC(15,2) NOT NULL ,
+                    quantity INT NOT NULL
                 )
             `)
             console.log("Table successfully created! :D")

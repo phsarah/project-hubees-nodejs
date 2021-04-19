@@ -13,6 +13,8 @@ bikeRouter.put("/edit/:id", bikeController.editPrice);
 
 bikeRouter.get("/filter/price", bikeController.getBikesByPrice);
 
-bikeRouter.get("/filter/:color", bikeController.getBikesByColor);
+bikeRouter.get("/filter/color", bikeController.getBikesByColor);
 
 bikeRouter.get("/:id", bikeController.getDataById);
+
+bikeRouter.delete("/buy/:id", bikeController.buy);

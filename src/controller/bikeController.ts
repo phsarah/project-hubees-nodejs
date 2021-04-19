@@ -30,7 +30,8 @@ export class BikeController{
                 numberOfGears: req.body.numberOfGears,
                 brand: req.body.brand,
                 model: req.body.model,
-                price: req.body.price
+                price: req.body.price,
+                quantity: req.body.quantity
             }
             await bikeBusiness.registerBike(input)
 
@@ -119,6 +120,26 @@ export class BikeController{
             res
             .status(200)
             .send({ filteredBikeList })
+        }
+        catch(e){
+            res
+            .status(400)
+            .send({ error: e.message })
+        }
+    }
+
+    public async buy(req: Request, res: Response){
+        try{
+
+            const { id } = req.params
+
+            const { quantity } = req.body
+
+            const productData = await bikeBusiness.buy(id, quantity)
+
+            res
+            .status(200)
+            .send(`Successful purchase of the ${productData.brand} ${productData.model}`)
         }
         catch(e){
             res

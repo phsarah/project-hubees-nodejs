@@ -5,7 +5,7 @@ import { BikeModel } from "./model/bikeModel";
 
 export default class BikeDatabase extends BaseDatabase{
 
-    private static TABLE = "hubees_bike"
+    private static TABLE = "hubeecicly_bike"
 
     public async insertBike(id: string, input: BikeInputDTO): Promise<void>{
         try{
@@ -16,7 +16,8 @@ export default class BikeDatabase extends BaseDatabase{
                 number_of_gears: input.numberOfGears,
                 brand: input.brand,
                 model: input.model,
-                price: input.price
+                price: input.price,
+                quantity: input.quantity
             })
             .into(BikeDatabase.TABLE);
         }
@@ -58,7 +59,8 @@ export default class BikeDatabase extends BaseDatabase{
                     numberOfGears: bike.number_of_gears,
                     brand: bike.brand,
                     model: bike.model,
-                    price: bike.price
+                    price: bike.price,
+                    quantity: bike.quantity
                 }
             })        
         }
@@ -72,6 +74,17 @@ export default class BikeDatabase extends BaseDatabase{
                 UPDATE ${BikeDatabase.TABLE}
                 SET price = ${price}
                 WHERE id = '${id}'
+            `)
+        }
+        catch(e){
+            throw new CustomError(500, e.sqlMessage || e.message)
+        }
+    }
+    public async deleteBike(id: string): Promise<void>{
+        try{
+            await BaseDatabase.connection.raw(`
+                DELETE FROM ${BikeDatabase.TABLE}
+                WHERE id = "${id}"
             `)
         }
         catch(e){

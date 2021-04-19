@@ -26,24 +26,52 @@ export class BikeBusiness{
         if(!input.price || isNaN(input.price)){
             throw new CustomError(417, "It is necessary to inform the 'price' (in number and point) of the bike.")
         }
-
+        if(!input.quantity || isNaN(input.quantity)){
+            throw new CustomError(417, "It is necessary to inform the 'quantity' (in number) of the bike.")
+        }
+        
         const id = this.idGenerator.generate()
         
         await this.bikeDatabase.insertBike(id, input)
     }
 
+    public async buy(id: string, quantity: number){
+
+        if(!id){
+            throw new CustomError(417, "It is necessary to inform the 'id' in params.");
+        }
+
+        if(isNaN(quantity)){
+            throw new CustomError(417, "The 'quantity' entry must be of the numeric type.");
+        }
+
+        const productData = await this.bikeDatabase.selectById(id)
+
+        await this.bikeDatabase.deleteBike(id)
+
+        return productData
+    }
+
     public async editPrice(id: string, price: number){
         
+        if(!id){
+            throw new CustomError(417, "It is necessary to inform the 'id' in params.");
+        }
         if(isNaN(price)){
             throw new CustomError(417, "The 'price' entry must be of the numeric type.");
         }
+
         await this.bikeDatabase.selectById(id)
 
         await this.bikeDatabase.updatePrice(id, price)
     }
 
     public async getById(id: string){
-    
+        
+        if(!id){
+            throw new CustomError(417, "It is necessary to inform the 'id' in params.");
+        }
+
         const productData = await this.bikeDatabase.selectById(id)
         
         return productData
@@ -58,6 +86,10 @@ export class BikeBusiness{
 
     public async selectByColor(color: string){
         
+        if(!color){
+            throw new CustomError(417, "It is necessary to inform the 'color' of the bike.");
+        }
+
         const toUpperCaseColor = color && color.toUpperCase()
 
         const listOfBikes = await this.bikeDatabase.selectAll()
