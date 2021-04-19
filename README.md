@@ -1,7 +1,8 @@
-# HubeeCicly 🚲
+# HubeeCicly 🚲 
 
 <a id="en-readme"></a>
 ### English | [Português](#pt-readme)
+
 Back-end project developed for the Hubees selection process. 🐝 \
 HubeeCicly is a REST API for creating bikes and handling your information. See here the features: [Features](#features)
 
@@ -95,7 +96,8 @@ Thank you for your visit and good coding! :shipit:
 -------
 <a id="pt-readme"></a>
 ### [English](#en-readme) | Português
-Projeto back-end desenvolvido para o processo seletivo da Hubees 🐝. \
+
+Projeto back-end desenvolvido para o processo seletivo da Hubees. 🐝 \
 HubeeCicly é uma API REST para criar bicicletas e manipular suas informações. Veja aqui os recursos: [Funcionalidades](#funcionalidades)
 
 <a name="pt-menu"></a>
