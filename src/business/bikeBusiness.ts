@@ -12,22 +12,25 @@ export class BikeBusiness{
     public async registerBike(input: BikeInputDTO){
 
         if(!input.color){
-            throw new CustomError(417, "It is necessary to inform the 'color' of the bike.")
+            throw new CustomError(417, "It is necessary to inform the 'color' of the bike.");
         }
-        if(!input.numberOfGears || isNaN(input.numberOfGears)){
-            throw new CustomError(417, "It is necessary to inform the 'number of gears' (in number) of the bike.")
+        if(!input.numberOfGears || 
+            isNaN(input.numberOfGears)){
+            throw new CustomError(417, "It is necessary to inform the 'number of gears' (in number) of the bike.");
         }
         if(!input.brand){
-            throw new CustomError(417, "It is necessary to inform the 'brand' of the bike.")
+            throw new CustomError(417, "It is necessary to inform the 'brand' of the bike.");
         }
         if(!input.model){
-            throw new CustomError(417, "It is necessary to inform the 'model' of the bike.")
+            throw new CustomError(417, "It is necessary to inform the 'model' of the bike.");
         }
-        if(!input.price || isNaN(input.price)){
-            throw new CustomError(417, "It is necessary to inform the 'price' (in number and point) of the bike.")
+        if(!input.price || 
+            isNaN(input.price)){
+            throw new CustomError(417, "It is necessary to inform the 'price' (in number and point) of the bike.");
         }
-        if(!input.quantity || isNaN(input.quantity)){
-            throw new CustomError(417, "It is necessary to inform the 'quantity' (in number) of the bike.")
+        if(!input.quantity || 
+            isNaN(input.quantity)){
+            throw new CustomError(417, "It is necessary to inform the 'quantity' (in number) of the bike.");
         }
         
         const id = this.idGenerator.generate()
@@ -40,14 +43,18 @@ export class BikeBusiness{
         if(!id){
             throw new CustomError(417, "It is necessary to inform the 'id' in params.");
         }
-
         if(isNaN(quantity)){
             throw new CustomError(417, "The 'quantity' entry must be of the numeric type.");
         }
 
         const productData = await this.bikeDatabase.selectById(id)
 
-        await this.bikeDatabase.deleteBike(id)
+        if( productData.quantity < 1 || 
+            productData.quantity < quantity){
+            throw new CustomError(417, `Bike out of stock. ${productData.quantity} left in stock.`);
+        }
+
+        await this.bikeDatabase.updateQuantityInStock(id, quantity)
 
         return productData
     }
@@ -71,7 +78,6 @@ export class BikeBusiness{
         if(!id){
             throw new CustomError(417, "It is necessary to inform the 'id' in params.");
         }
-
         const productData = await this.bikeDatabase.selectById(id)
         
         return productData
@@ -89,7 +95,6 @@ export class BikeBusiness{
         if(!color){
             throw new CustomError(417, "It is necessary to inform the 'color' of the bike.");
         }
-
         const toUpperCaseColor = color && color.toUpperCase()
 
         const listOfBikes = await this.bikeDatabase.selectAll()
@@ -99,6 +104,7 @@ export class BikeBusiness{
             return bikeColor.match(toUpperCaseColor) 
         })
     }
+
     public async selectByPrice(minPrice: number, maxPrice: number){
 
         if(!minPrice || !maxPrice){

@@ -17,4 +17,4 @@ bikeRouter.get("/filter/color", bikeController.getBikesByColor);
 
 bikeRouter.get("/:id", bikeController.getDataById);
 
-bikeRouter.delete("/buy/:id", bikeController.buy);
+bikeRouter.put("/buy/:id", bikeController.buy);

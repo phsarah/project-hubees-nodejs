@@ -7,7 +7,8 @@ export class BikeModel{
             bike.number_of_gears,
             bike.brand,
             bike.model,
-            bike.price
+            bike.price,
+            bike.quantity
         );
     }
 }

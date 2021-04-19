@@ -45,6 +45,24 @@ export class BikeController{
             .send({ error: e.message });
         }
     }
+    public async buy(req: Request, res: Response){
+        try{
+
+            const { id } = req.params
+            const { quantity } = req.body
+
+            const productData = await bikeBusiness.buy(id, quantity)
+
+            res
+            .status(200)
+            .send(`Successful purchase of the ${productData.brand} ${productData.model} bike!`)
+        }
+        catch(e){
+            res
+            .status(400)
+            .send({ error: e.message })
+        }
+    }
     public async editPrice(req: Request, res: Response){
         try{
             const { id } = req.params
@@ -120,26 +138,6 @@ export class BikeController{
             res
             .status(200)
             .send({ filteredBikeList })
-        }
-        catch(e){
-            res
-            .status(400)
-            .send({ error: e.message })
-        }
-    }
-
-    public async buy(req: Request, res: Response){
-        try{
-
-            const { id } = req.params
-
-            const { quantity } = req.body
-
-            const productData = await bikeBusiness.buy(id, quantity)
-
-            res
-            .status(200)
-            .send(`Successful purchase of the ${productData.brand} ${productData.model}`)
         }
         catch(e){
             res

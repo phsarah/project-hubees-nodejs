@@ -49,7 +49,7 @@ export default class BikeDatabase extends BaseDatabase{
                 .from(BikeDatabase.TABLE)
 
             if(!bikes.length){
-                throw new CustomError(404, "The bicycle list is empty.")
+                throw new CustomError(404, "The bicycle list is empty.");
             }
 
             return bikes.map((bike: any) => {
@@ -80,11 +80,12 @@ export default class BikeDatabase extends BaseDatabase{
             throw new CustomError(500, e.sqlMessage || e.message)
         }
     }
-    public async deleteBike(id: string): Promise<void>{
+    public async updateQuantityInStock(id: string, quantity: number): Promise<void>{
         try{
             await BaseDatabase.connection.raw(`
-                DELETE FROM ${BikeDatabase.TABLE}
-                WHERE id = "${id}"
+                UPDATE ${BikeDatabase.TABLE}
+                SET quantity = quantity - ${quantity}
+                WHERE id = '${id}'
             `)
         }
         catch(e){
