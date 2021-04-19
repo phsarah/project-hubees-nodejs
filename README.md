@@ -67,7 +67,7 @@ The server will open on the port 3003 - http://localhost:3003
 - Get all list bikes
 - Filters:
     - Get bikes by color 
-     *flexible filter, example: green, GREEN, GrEeN ✔️*
+    - *flexible filter, example: green, GREEN, GrEeN ✔️*
     - Get bikes by price
 
 <a id="libs"></a>
