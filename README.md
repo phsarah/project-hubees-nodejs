@@ -18,6 +18,8 @@ HubeeCicly is a REST API for creating bikes and handling your information. See h
 ## 📙 Documentation
 [Postman](https://documenter.getpostman.com/view/13247023/TzJuAdWD) <br/> 
 
+Deploy [Heroku](https://hubeecicly-project.herokuapp.com/)
+
 <a id="steps"></a>
 ## :rocket: Getting Started
 
@@ -113,6 +115,7 @@ HubeeCicly é uma API REST para criar bicicletas e manipular suas informações.
 <a id="documentacao"></a>
 ## 📙	Documentação
 [Postman](https://documenter.getpostman.com/view/13247023/TzJuAdWD) <br/> 
+Deploy [Heroku](https://hubeecicly-project.herokuapp.com/)
 
 <a id="passos"></a>
 ## :rocket:	Primeiros Passos
