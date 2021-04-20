@@ -21,8 +21,7 @@
     "url": "https://github.com/phsarah/project-hubees-nodejs/issues"
   },
   "homepage": "https://github.com/phsarah/project-hubees-nodejs#readme",
-  "devDependencies": {
-  },
+  "devDependencies": {},
   "dependencies": {
     "@types/knex": "^0.16.1",
     "@types/uuid": "^8.3.0",

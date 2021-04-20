@@ -1,6 +1,6 @@
 import { Bike, BikeInputDTO, BikeOutputDTO } from "../business/entities/bike";
 import { CustomError } from "../business/error/customError";
-import BaseDatabase from "./baseDatabase";
+import BaseDatabase from "./BaseDatabase";
 import { BikeModel } from "./model/bikeModel";
 
 export default class BikeDatabase extends BaseDatabase{
