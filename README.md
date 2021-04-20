@@ -38,7 +38,7 @@ npm install
 DB_HOST = 
 DB_USER =
 DB_PASSWORD = 
-DB_DATABASE_NAME = 
+DB_NAME = 
 
 ```
 4- Run this command for create table mySQL
@@ -75,6 +75,7 @@ The server will open on the port 3003 - http://localhost:3003
 
 - Cors
 - Knex
+- uuid
 - Mysql
 - Dotenv
 - Express
@@ -133,7 +134,7 @@ npm install
 DB_HOST =
 DB_USER =
 DB_PASSWORD = 
-DB_DATABASE_NAME = 
+DB_NAME = 
 
 ```
 4- Rode esse comando para criar a tabela mySQL:
@@ -171,6 +172,7 @@ O servidor será aberto na porta 3003 - http://localhost:3003
 - Cors
 - Knex
 - Mysql
+- uuid
 - Dotenv
 - Express
 - Node.js
