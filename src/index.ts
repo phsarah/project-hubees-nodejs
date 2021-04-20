@@ -8,7 +8,7 @@ const app: Express = express();
 app.use(express.json());
 app.use(cors());
 
-// app.use("/", baseRouter)
+app.use("/", baseRouter)
 app.use("/bike", bikeRouter);
 
 

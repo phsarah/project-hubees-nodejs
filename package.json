@@ -7,6 +7,7 @@
     "start": "tsc && node ./build/src/index.js",
     "dev": "ts-node-dev ./src/index.ts",
     "setup": "tsc && node ./build/src/sqlSetup.js",
+    "tsc": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -21,7 +22,6 @@
   },
   "homepage": "https://github.com/phsarah/project-hubees-nodejs#readme",
   "devDependencies": {
-    
   },
   "dependencies": {
     "@types/knex": "^0.16.1",
@@ -29,7 +29,6 @@
     "cors": "^2.8.5",
     "knex": "^0.95.4",
     "mysql": "^2.18.1",
-    "pug": "^3.0.2",
     "uuid": "^8.3.2",
     "@types/cors": "^2.8.10",
     "@types/dotenv": "^8.2.0",
